@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:ExpenseTracker.Models;assembly=ExpenseTracker"
+             xmlns:viewmodels="clr-namespace:ExpenseTracker.ViewModels"
+             x:Class="ExpenseTracker.Views.ExpensesPage"
+             Title="Expenses">
+
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto, Auto, Auto, *"
+              Padding="15, 10"
+              RowSpacing="10">
+
+            <Button Grid.Row="0"
+                    Text="Add New Expense" 
+                    Command="{Binding AddExpenseCommand}" 
+                    BackgroundColor="#2196F3" 
+                    TextColor="White" 
+                    CornerRadius="8"
+                    HeightRequest="50"/>
+
+            <Frame Grid.Row="1"
+                   Padding="10" 
+                   Margin="0, 5, 0, 5" 
+                   BorderColor="#CCCCCC" 
+                   CornerRadius="8">
+                <Grid ColumnDefinitions="*, Auto" ColumnSpacing="10">
+                    <Entry Grid.Column="0" 
+                           Placeholder="Search description..." 
+                           Text="{Binding SearchText, Mode=TwoWay}" 
+                           ClearButtonVisibility="WhileEditing" />
+                    <Picker Grid.Column="1" 
+                            Title="Filter Category"
+                            WidthRequest="120"
+                            ItemsSource="{Binding AvailableCategories}"
+                            SelectedItem="{Binding SelectedCategoryFilter, Mode=TwoWay}" />
+                </Grid>
+            </Frame>
+
+            <Frame Grid.Row="2"
+                   Padding="10" 
+                   BorderColor="#CCCCCC" 
+                   CornerRadius="8" 
+                   Margin="0,0,0,5">
+                <HorizontalStackLayout Spacing="10" HorizontalOptions="FillAndExpand">
+                    <VerticalStackLayout HorizontalOptions="StartAndExpand">
+                        <Label Text="From:" FontAttributes="Bold" FontSize="13"/>
+                        <DatePicker Date="{Binding StartDate}" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout HorizontalOptions="EndAndExpand">
+                        <Label Text="To:" FontAttributes="Bold" FontSize="13"/>
+                        <DatePicker Date="{Binding EndDate}" />
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+            </Frame>
+
+            <CollectionView Grid.Row="3"
+                            ItemsSource="{Binding Expenses}"
+                            VerticalOptions="Fill">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Expense">
+                        <Frame Margin="10" Padding="10" BorderColor="#E0E0E0" CornerRadius="10">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding Source={RelativeSource 
+                                        AncestorType={x:Type viewmodels:ExpensesViewModel}}, 
+                                        Path=SelectExpenseCommand}"
+                                    CommandParameter="{Binding .}" />
+                            </Frame.GestureRecognizers>
+
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Category}" FontAttributes="Bold" FontSize="16"/>
+                                <Label Text="{Binding Amount, StringFormat='Amount: {0:C}'}" FontSize="14"/>
+                                <Label Text="{Binding Date, StringFormat='Date: {0:MMM dd, yyyy}'}" FontSize="13" TextColor="Gray"/>
+                                <Label Text="{Binding Description}" FontSize="13" TextColor="#444" LineBreakMode="TailTruncation"/>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <ActivityIndicator Grid.Row="3"
+                               IsRunning="{Binding IsBusy}" 
+                               IsVisible="{Binding IsBusy}" 
+                               Color="#FF9800"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

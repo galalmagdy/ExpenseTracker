@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ExpenseTracker.Views.SummaryPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:microcharts="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
+    Title="Summary">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="25">
+
+            <Label Text="Summary Dashboard"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <Frame BackgroundColor="#2196F3" Padding="15" CornerRadius="12">
+                <Label Text="{Binding TotalExpense, StringFormat='Total: ${0:F2}'}"
+                       FontSize="20"
+                       TextColor="White"
+                       HorizontalOptions="Center" />
+            </Frame>
+            
+            <Label Text="Category Breakdown"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   Margin="0,20,0,0" />
+            <microcharts:ChartView
+                Chart="{Binding CategoryChart}"
+                HeightRequest="300"
+                WidthRequest="300"
+                HorizontalOptions="Center" />
+
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
