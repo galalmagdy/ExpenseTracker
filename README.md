@@ -48,7 +48,7 @@ The app follows the **MVVM architecture**, uses **Dependency Injection**, and st
 git clone https://github.com/galalmagdy/ExpenseTracker.git
 cd expense-tracker-maui
 
-###3. Build and Run
+### 3. Build and Run
 
     Open ExpenseTracker.sln in Visual Studio.
 
@@ -56,7 +56,7 @@ cd expense-tracker-maui
 
     Press Run (▶) to start the app.
 
-###4. Demo Login Credentials
+### 4. Demo Login Credentials
 
 The application includes a pre-configured demo account to quickly test the features:
 Field	Value
