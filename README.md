@@ -49,29 +49,27 @@ git clone https://github.com/galalmagdy/ExpenseTracker.git
 cd expense-tracker-maui
 
 ### 3. Build and Run
+1. Open `ExpenseTracker.sln` in **Visual Studio**  
+2. Select your target platform (**Android**, **iOS**, or **Windows**)  
+3. Press ▶️ **Run** to start the app  
 
-    Open ExpenseTracker.sln in Visual Studio.
-
-    Select the target platform (Android, iOS, or Windows).
-
-    Press Run (▶) to start the app.
+---
 
 ### 4. Demo Login Credentials
+| Field | Value |
+|-------|--------|
+| **Username** | demo@user.com |
+| **Password** | 1234 |
 
-The application includes a pre-configured demo account to quickly test the features:
-Field	Value
-Username	demo@user.com
-Password	1234
+---
 
-🧩 Mock Service Implementation
+### 🧩 Mock Service Implementation
+The app originally used `MockExpenseService` for temporary in-memory data during development.  
+It has since been replaced by `SQLiteExpenseService` for persistent local storage using SQLite.
 
-The app originally used MockExpenseService for temporary in-memory data during development.
-It has since been replaced by SQLiteExpenseService for persistent local storage using SQLite.
+---
 
-
-👤 Author
-
-Galal Magdy
-🌐 https://galalmagdy.github.io/
-
+## 👤 Author
+**Galal Magdy**  
+🌐 [https://galalmagdy.github.io/](https://galalmagdy.github.io/)  
 📧 galalmagdywork@gmail.com
