@@ -46,12 +46,14 @@ The app follows the **MVVM architecture**, uses **Dependency Injection**, and st
 ### 2. Clone the repository
 ```bash
 git clone https://github.com/galalmagdy/ExpenseTracker.git
-cd expense-tracker-maui
+cd ExpenseTracker
+```
+---
 
 ### 3. Build and Run
-1. Open `ExpenseTracker.sln` in **Visual Studio**  
-2. Select your target platform (**Android**, **iOS**, or **Windows**)  
-3. Press ▶️ **Run** to start the app  
+- Open `ExpenseTracker.sln` in **Visual Studio**  
+- Select your target platform (**Android**, **iOS**, or **Windows**)  
+- Press ▶️ **Run** to start the app  
 
 ---
 
