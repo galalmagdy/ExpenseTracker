@@ -25,7 +25,7 @@ namespace ExpenseTracker.ViewModels
 
         public ObservableCollection<Expense> Expenses { get; } = new();
         public ObservableCollection<string> AvailableCategories { get; } = new(
-            new[] { "All", "Food", "Transport", "Shopping", "Entertainment", "Bills", "Other" });
+            new[] { "All", "Food", "Transportation", "Shopping", "Entertainment", "Bills", "Other" });
 
         // Commands
         public ICommand LoadExpensesCommand { get; }
