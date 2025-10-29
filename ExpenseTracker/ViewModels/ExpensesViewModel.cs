@@ -9,9 +9,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Diagnostics.CodeAnalysis;
 
 namespace ExpenseTracker.ViewModels
 {
+
     public class ExpensesViewModel : BaseViewModel
     {
         private readonly IExpenseService _expenseService;
